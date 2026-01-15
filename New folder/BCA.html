@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PA Page - Semester Wise</title>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          background: linear-gradient(to right, #74ebd5, #acb6e5);
+          margin: 0;
+          padding: 0;
+        }
+
+        header {
+          text-align: center;
+          background-color: #333;
+          color: white;
+          padding: 15px 0;
+          font-size: 1.5em;
+          letter-spacing: 1px;
+        }
+
+        .container {
+          max-width: 900px;
+          margin: 40px auto;
+          background: #fff;
+          border-radius: 12px;
+          padding: 20px;
+          box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .semester {
+          border: 1px solid #ddd;
+          margin: 10px 0;
+          border-radius: 10px;
+          overflow: hidden;
+        }
+
+        .semester-header {
+          background: #4CAF50;
+          color: white;
+          padding: 20px;
+          cursor: pointer;
+          font-weight: bold;
+          transition: 0.3s;
+        }
+
+        .semester-header:hover {
+          background: #45a049;
+        }
+
+        .semester-content {
+          display: none;
+          padding: 15px;
+          background-color: #f9f9f9;
+          line-height: 1.6;
+        }
+
+        .subject {
+          padding: 8px 0;
+          border-bottom: 1px solid #ddd;
+        }
+
+        .subject:last-child {
+          border-bottom: none;
+        }
+
+    </style>
+</head>
+<body>
+<header> BCA ONLINE EXAM</header>
+
+<div class="container">
+    <!-- Semester 1 -->
+    <div class="semester">
+        <div class="semester-header" onclick="toggleSemester(1)">Semester 1</div>
+        <div id="sem1" class="semester-content">
+            <div class="subject">Computer Fundamentals</div>
+            <div class="subject">C Programming</div>
+            <div class="subject">Mathematics I</div>
+            <div class="subject">English Communication</div>
+        </div>
+    </div>
+
+    <!-- Semester 2 -->
+    <div class="semester">
+        <div class="semester-header" onclick="toggleSemester(2)">Semester 2</div>
+        <div id="sem2" class="semester-content">
+            <div class="subject">Data Structures</div>
+            <div class="subject">Digital Electronics</div>
+            <div class="subject">Operating System</div>
+            <div class="subject">Mathematics II</div>
+        </div>
+    </div>
+
+    <!-- Semester 3 -->
+    <div class="semester">
+        <div class="semester-header" onclick="toggleSemester(3)">Semester 3</div>
+        <div id="sem3" class="semester-content">
+            <div class="subject">Database Management System</div>
+            <div class="subject">OOP using Java</div>
+            <div class="subject">Computer Networks</div>
+            <div class="subject">Software Engineering</div>
+        </div>
+    </div>
+
+    <!-- Semester 4 -->
+    <div class="semester">
+        <div class="semester-header" onclick="toggleSemester(4)">Semester 4</div>
+        <div id="sem4" class="semester-content">
+            <div class="subject">Web Technologies</div>
+            <div class="subject">Python Programming</div>
+            <div class="subject">Operating System II</div>
+            <div class="subject">Minor Project</div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    function toggleSemester(num) {
+      const content = document.getElementById(sem${num});
+      content.style.display = content.style.display === "block" ? "none" : "block";
+    }
+</script>
+</body>
+</html>

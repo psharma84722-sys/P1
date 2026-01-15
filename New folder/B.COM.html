@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>B.Com PA Page - Semester Wise</title>
+
+    <style>
+        body {
+          font-family: "Poppins", sans-serif;
+          background: linear-gradient(to right, #c9ffbf, #ffafbd);
+          margin: 0;
+          padding: 0;
+        }
+
+        header {
+          background-color: #2c3e50;
+          color: white;
+          text-align: center;
+          padding: 20px 0;
+          font-size: 1.8em;
+          font-weight: bold;
+          letter-spacing: 1px;
+        }
+
+        .container {
+          max-width: 850px;
+          margin: 40px auto;
+          background: #fff;
+          border-radius: 12px;
+          padding: 25px;
+          box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .semester {
+          border: 1px solid #ddd;
+          margin: 12px 0;
+          border-radius: 10px;
+          overflow: hidden;
+        }
+
+        .semester-header {
+          background: #27ae60;
+          color: white;
+          padding: 15px;
+          cursor: pointer;
+          font-weight: bold;
+          font-size: 1.1em;
+          transition: 0.3s;
+        }
+
+        .semester-header:hover {
+          background: #1e8449;
+        }
+
+        .semester-content {
+          display: none;
+          padding: 15px 20px;
+          background: #fafafa;
+          animation: fadeIn 0.4s ease;
+        }
+
+        .subject {
+          padding: 8px 0;
+          border-bottom: 1px solid #ddd;
+          font-size: 1.05em;
+        }
+
+        .subject:last-child {
+          border-bottom: none;
+        }
+
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(-5px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+<header>B.Com EXAM</header>
+
+<div class="container">
+    <!-- Semester 1 -->
+    <div class="semester">
+        <div class="semester-header">Semester 1</div>
+        <div class="semester-content">
+            <div class="subject">Financial Accounting</div>
+            <div class="subject">Business Organization</div>
+            <div class="subject">Business Communication</div>
+            <div class="subject">Business Mathematics</div>
+            <div class="subject">Business Economics</div>
+        </div>
+    </div>
+
+    <!-- Semester 2 -->
+    <div class="semester">
+        <div class="semester-header">Semester 2</div>
+        <div class="semester-content">
+            <div class="subject">Corporate Accounting</div>
+            <div class="subject">Business Laws</div>
+            <div class="subject">Company Law</div>
+            <div class="subject">Business Statistics</div>
+            <div class="subject">Environmental Studies</div>
+        </div>
+    </div>
+
+    <!-- Semester 3 -->
+    <div class="semester">
+        <div class="semester-header">Semester 3</div>
+        <div class="semester-content">
+            <div class="subject">Income Tax Law & Practice</div>
+            <div class="subject">Cost Accounting</div>
+            <div class="subject">Banking and Insurance</div>
+            <div class="subject">Marketing Management</div>
+            <div class="subject">Computer Applications in Business</div>
+        </div>
+    </div>
+
+    <!-- Semester 4 -->
+    <div class="semester">
+        <div class="semester-header">Semester 4</div>
+        <div class="semester-content">
+            <div class="subject">Indirect Tax (GST)</div>
+            <div class="subject">Management Accounting</div>
+            <div class="subject">Auditing</div>
+            <div class="subject">Human Resource Management</div>
+            <div class="subject">Business Finance</div>
+        </div>
+    </div>
+
+    <!-- Semester 5 -->
+    <div class="semester">
+        <div class="semester-header">Semester 5</div>
+        <div class="semester-content">
+            <div class="subject">Financial Management</div>
+            <div class="subject">International Business</div>
+            <div class="subject">Entrepreneurship Development</div>
+            <div class="subject">E-Commerce</div>
+            <div class="subject">Project Work</div>
+        </div>
+    </div>
+
+    <!-- Semester 6 -->
+    <div class="semester">
+        <div class="semester-header">Semester 6</div>
+        <div class="semester-content">
+            <div class="subject">Investment Management</div>
+            <div class="subject">Corporate Governance</div>
+            <div class="subject">Business Ethics</div>
+            <div class="subject">Strategic Management</div>
+            <div class="subject">Viva-Voce / Internship</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Select all semester headers
+    const semesterHeaders = document.querySelectorAll('.semester-header');
+
+    semesterHeaders.forEach(header => {
+      header.addEventListener('click', () => {
+        const content = header.nextElementSibling;
+
+        // Close other semesters
+        document.querySelectorAll('.semester-content').forEach(section => {
+          if (section !== content) section.style.display = 'none';
+        });
+
+        // Toggle selected semester
+        if (content.style.display === 'block') {
+          content.style.display = 'none';
+        } else {
+          content.style.display = 'block';
+        }
+      });
+    });
+</script>
+</body>
+</html>

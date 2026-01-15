@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML/CSS/JS Quiz</title>
+    <style>
+        body {
+  font-family: Arial, sans-serif;
+  background-image: url('https://aquila-style.com/wp-content/uploads/2020/08/Online-Examination.jpg');  /* Replace with your image file */
+  background-size: cover;       /* Make sure it covers the whole screen */
+  background-position: center;  /* Center the image */
+  background-repeat: no-repeat; /* Don’t repeat the image */
+  background-attachment: fixed; /* Optional: keeps image fixed during scroll */
+  padding: 20px;
+  margin: 0;
+
+
+          padding: 20px;
+          background: #f9f9f9;
+        }
+        .quiz-container {
+          background: #fff;
+          padding: 20px;
+          border-radius: 8px;
+          box-shadow: 0 0 10px rgba(0,0,0,0.1);
+          max-width: 600px;
+          margin: auto;
+        }
+        h2 {
+          margin-bottom: 10px;
+        }
+        .question {
+          font-weight: bold;
+        }
+        .options {
+          margin-top: 10px;
+        }
+        .options label {
+          display: block;
+          margin-bottom: 8px;
+        }
+        .btn {
+          margin-top: 20px;
+        }
+        button {
+          padding: 10px 15px;
+          background: #007bff;
+          color: #fff;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+        }
+        button:hover {
+          background: #0056b3;
+        }
+        .result {
+          font-size: 18px;
+          margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="quiz-container">
+    <h2>HTML/CSS/JavaScript Quiz</h2>
+    <div id="quiz">
+        <div class="question" id="question"></div>
+        <div class="options" id="options"></div>
+        <div class="btn">
+            <button onclick="nextQuestion()">Next</button>
+        </div>
+        <div class="result" id="result"></div>
+    </div>
+</div>
+
+<script>
+    const questions = [
+      {
+        question: "1. What does HTML stand for?",
+        options: ["Hyper Text Markup Language", "Home Tool Markup Language", "Hyperlinks and Text Markup Language"],
+        answer: "Hyper Text Markup Language"
+      },
+      {
+        question: "2. Which CSS property is used to change the text color of an element?",
+        options: ["text-color", "font-color", "color"],
+        answer: "color"
+      },
+      {
+        question: "3. Inside which HTML element do we put the JavaScript?",
+        options: ["<js>", "<javascript>", "<script>"],
+        answer: "<script>"
+      },
+      {
+        question: "4. What will this JavaScript code return? `typeof null`",
+        options: ["null", "object", "undefined"],
+        answer: "object"
+      },
+      {
+        question: "5. Which CSS property controls the text size?",
+        options: ["font-style", "text-size", "font-size"],
+        answer: "font-size"
+      }
+    ];
+
+    let currentQuestion = 0;
+    let score = 0;
+
+    function loadQuestion() {
+      const q = questions[currentQuestion];
+      document.getElementById("question").innerText = q.question;
+      const optionsHtml = q.options.map(opt => `
+        <label>
+          <input type="radio" name="option" value="${opt}">
+          ${opt}
+        </label>
+      `).join('');
+      document.getElementById("options").innerHTML = optionsHtml;
+    }
+
+    function nextQuestion() {
+      const selectedOption = document.querySelector('input[name="option"]:checked');
+      if (!selectedOption) {
+        alert("Please select an option!");
+        return;
+      }
+
+      if (selectedOption.value === questions[currentQuestion].answer) {
+        score++;
+      }
+
+      currentQuestion++;
+      if (currentQuestion < questions.length) {
+        loadQuestion();
+      } else {
+        document.getElementById("quiz").innerHTML = `
+          <h2>Quiz Completed!</h2>
+          <div class="result">Your score: ${score} out of ${questions.length}</div>
+        `;
+      }
+    }
+
+    // Load the first question on page load
+    loadQuestion();
+</script>
+</body>
+</html>

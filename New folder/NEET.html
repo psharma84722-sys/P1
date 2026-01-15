@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEET Online Exam</title>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          background: linear-gradient(to right, #89f7fe, #66a6ff);
+          margin: 0;
+          padding: 0;
+        }
+        .container {
+          max-width: 800px;
+          background: white;
+          margin: 50px auto;
+          padding: 25px;
+          border-radius: 10px;
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+          text-align: center;
+          color: #2c3e50;
+        }
+        .question {
+          margin-bottom: 20px;
+          font-weight: bold;
+        }
+        label {
+          display: block;
+          margin-bottom: 10px;
+        }
+        button {
+          width: 100%;
+          background: #27ae60;
+          color: white;
+          border: none;
+          padding: 15px;
+          border-radius: 8px;
+          font-size: 1.1em;
+          cursor: pointer;
+        }
+        button:hover {
+          background: #219150;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>NEET Practice Exam</h1>
+
+    <form id="quizForm">
+        <div class="question">
+            1. What is the basic structural unit of life?
+        </div>
+        <label><input type="radio" name="q1" value="a"> Tissue</label>
+        <label><input type="radio" name="q1" value="b"> Cell</label>
+        <label><input type="radio" name="q1" value="c"> Organ</label>
+        <label><input type="radio" name="q1" value="d"> System</label>
+
+        <div class="question">
+            2. Which vitamin is made in our body by sunlight?
+        </div>
+        <label><input type="radio" name="q2" value="a"> Vitamin A</label>
+        <label><input type="radio" name="q2" value="b"> Vitamin D</label>
+        <label><input type="radio" name="q2" value="c"> Vitamin B</label>
+        <label><input type="radio" name="q2" value="d"> Vitamin C</label>
+
+        <button type="button" onclick="submitExam()">Submit Exam</button>
+    </form>
+</div>
+
+<script>
+    function submitExam() {
+      // Correct answers
+      const correct = { q1: "b", q2: "b" };
+      let score = 0;
+      const form = document.getElementById("quizForm");
+
+      // Calculate score
+      for (let key in correct) {
+        const answer = form[key].value;
+        if (answer === correct[key]) score++;
+      }
+
+      // Save score to localStorage (so next page can read it)
+      localStorage.setItem("neetScore", score);
+
+      // Redirect to result page
+      window.location.href = "result.html";
+    }
+</script>
+</body>
+</html>
